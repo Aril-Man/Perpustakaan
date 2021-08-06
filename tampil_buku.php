@@ -46,7 +46,7 @@ if (isset($_GET['edit'])) {
                 <td><?php echo $r['pengarang'] ?></td>
                 <td><?php echo $r['penerbit'] ?></td>
                 <td><?php echo $r['jumlah'] ?></td>
-                <td><a class="btn btn-danger" href="?menu=tampil_buku&delete&id=<?php echo $r['id']?>" onclick="return confirm('Hapus Data?')">Hapus</a></td>
+                <td><a class="btn btn-danger" href="?menu=tampil_buku&delete&id=<?php echo $r['id']?>" onclick="return confirm('Anda yakin ingin menghapus buku <?php echo $r['judul'] ?>?')">Hapus</a></td>
                 <td><a class="btn btn-warning" href="?menu=input_buku&edit&id=<?php echo $r['id']?>">Edit</a>
             </tr>
 
