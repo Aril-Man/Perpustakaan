@@ -1,93 +1,47 @@
-<!doctype html>
-<html lang="en">
+<?php
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+include 'config/koneksi.php';
+include 'library/controller.php';
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+$table = 'login';
+@$username = $_POST['user'];
+@$password = $_POST['pass'];
+$redirect = 'dashboard.php';
 
-    <title>Dashboard</title>
-</head>
+$go = new Controller();
 
-<body>
-    <!-- nav -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">Perpustakaan</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Inputan
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="?menu=input_buku">Input Buku</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Data
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="?menu=tampil_buku">Data Buku</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+if (isset($_POST['login'])) {
+    $go->login($con, $table, $username, $password, $redirect);
+}
 
-    <!-- end navbar -->
-    <br><br>
-    <!-- jumbotron -->
-    <div class="container mt-2">
-        <div class="jumbotron">
-            <div class="text-center">
-                <h1 class="display-4 center">Perpustakaan</h1>
-                <p class="lead center">This is a simple hero unit, a comfortable Library.</p>
-                <hr class="my-4">
-                
-            </div>
-        </div>
-    </div>
-    <!-- end jumbotron -->
-    <?php 
-    switch(@$_GET['menu']){
-        case 'input_buku';
-        include 'input_buku.php';
-        break;
-        
-        case 'tampil_buku';
-        include 'tampil_buku.php';
-        break;
-        
-        
-        break;
-    }
 ?>
-<div class="text-center">
-    <strong class="center">Copyright &copy; 2021 <a href="#">Azriel Fauzi Hermansyah</a>.</strong> All
-                    rights reserved.
-</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
-    </script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-
-
-</body>
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+    <title>Login</title>
+  </head>
+  <body style="background-image: url(img/Book.jpg); background-size: cover">
+  <div class="container mt-4">
+        <div class="card d-inline-flex p-2 bd-highlight position-absolute top-50 start-50 translate-middle" >
+            <div class="card-body" style="width: 30rem">
+            <h3 class="card-title text-center">Login</h3>
+            <form action="" method="POST">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Username</label>
+                    <input type="text" name="user" class="form-control" id="exampleFormControlInput1" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Password</label>
+                    <input type="password" name="pass" class="form-control" id="exampleFormControlInput1"required>
+                </div>
+                <button class="btn btn-outline-primary" type="submit" name="login" value="LOGIN">Login</button>
+            </div>
+        </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  </body>
 </html>
