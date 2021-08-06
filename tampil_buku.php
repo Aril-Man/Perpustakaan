@@ -21,12 +21,13 @@ if (isset($_GET['edit'])) {
     <table align="center" border="2"  class="display mt-4 table table-striped table-hover table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>Kode Buku</th>
-                <th>Judul</th>
-                <th>Pengarang</th>
-                <th>Penerbit</th>
-                <th>Jumlah</th>
-                <th colspan="2">Aksi</th>
+                <th class="text-center">No</th>
+                <th class="text-center">Kode Buku</th>
+                <th class="text-center">Judul</th>
+                <th class="text-center">Pengarang</th>
+                <th class="text-center">Penerbit</th>
+                <th class="text-center">Jumlah</th>
+                <th class="text-center" colspan="2">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -41,13 +42,14 @@ if (isset($_GET['edit'])) {
                         $no++
             ?>
             <tr>
-                <td><?php echo $r['kodebuku'] ?></td>
-                <td><?php echo $r['judul'] ?></td>
-                <td><?php echo $r['pengarang'] ?></td>
-                <td><?php echo $r['penerbit'] ?></td>
-                <td><?php echo $r['jumlah'] ?></td>
-                <td><a class="btn btn-danger" href="?menu=tampil_buku&delete&id=<?php echo $r['id']?>" onclick="return confirm('Anda yakin ingin menghapus buku <?php echo $r['judul'] ?>?')">Hapus</a></td>
-                <td><a class="btn btn-warning" href="?menu=input_buku&edit&id=<?php echo $r['id']?>">Edit</a>
+                <td class="fw-bold text-center"><?= $no; ?></td>
+                <td class="text-center"><?php echo $r['kodebuku'] ?></td>
+                <td class="text-center"><?php echo $r['judul'] ?></td>
+                <td class="text-center"><?php echo $r['pengarang'] ?></td>
+                <td class="text-center"><?php echo $r['penerbit'] ?></td>
+                <td class="text-center"><?php echo $r['jumlah'] ?></td>
+                <td class="text-center"><a class="btn btn-danger" href="?menu=tampil_buku&delete&id=<?php echo $r['id']?>" onclick="return confirm('Anda yakin ingin menghapus buku <?php echo $r['judul'] ?>?')">Hapus</a></td>
+                <td class="text-center"><a class="btn btn-warning" href="?menu=input_buku&edit&id=<?php echo $r['id']?>">Edit</a>
             </tr>
 
             <?php  } } ?>
