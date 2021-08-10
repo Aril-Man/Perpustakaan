@@ -52,22 +52,22 @@ if (isset($_POST['update'])) {
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Judul Buku</label>
                         <input class="form-control" type="text" name="judul" value="<?php echo @$edit['judul'] ?>"
-                            placeholder="masukan Judul Buku" required>
+                            placeholder="Masukan Judul Buku" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Pengarang</label>
                         <input class="form-control" type="text" name="pengarang"
-                            value="<?php echo @$edit['pengarang'] ?>" placeholder="masukan nama Pengarang" required>
+                            value="<?php echo @$edit['pengarang'] ?>" placeholder="Masukan nama Pengarang" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Penerbit</label>
                         <input class="form-control" type="text" name="penerbit" value="<?php echo @$edit['penerbit'] ?>"
-                            placeholder="masukan nama Penerbit" required>
+                            placeholder="Masukan nama Penerbit" required>
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Jumlah</label>
                         <input class="form-control" type="number" name="jumlah" value="<?php echo @$edit['jumlah'] ?>"
-                            placeholder="masukan Jumlah Buku" required>
+                            placeholder="Masukan Jumlah Buku" required>
                     </div>
 
 
